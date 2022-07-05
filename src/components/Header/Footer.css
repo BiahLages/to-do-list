@@ -1,0 +1,20 @@
+.footerContent {
+  min-height: 5vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #211165;
+  background-color: #677db7;
+  gap: 5px;
+}
+
+.footerContent a {
+  text-decoration: none;
+  color: #1f0322;
+}
+
+.footerContent a:hover {
+  color: #decdf5;
+}

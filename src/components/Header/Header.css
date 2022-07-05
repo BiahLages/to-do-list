@@ -1,0 +1,10 @@
+.headerContent {
+  min-height: 10vh;
+  min-width: 100vw;
+  text-align: center;
+}
+
+#headerText {
+  padding-top: 20px;
+  color: #5743b0;
+}

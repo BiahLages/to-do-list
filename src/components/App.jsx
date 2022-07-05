@@ -6,94 +6,78 @@ import TarefaForm from "./Forms/TarefaForm";
 function App() {
   const [tarefasList, setTarefasList] = useState([]);
   const [tarefa, setTarefa] = useState({
-    tarefa_id: ""
-  })
+    tarefa_id: "",
+  });
   const [newTarefa, setNewTarefa] = useState({
-    descricao: ""
+    descricao: "",
   });
 
-  const [check, setCheck] = useState("")
+  const [check, setCheck] = useState("");
 
-  const baseURL= "http://localhost:8000/tarefas";
+  const baseURL = "http://localhost:8000/tarefas";
 
   async function findAllTarefas() {
-    const response = await fetch(baseURL)
-    const tarefas = await response.json()
-    setTarefasList(tarefas)
+    const response = await fetch(baseURL);
+    const tarefas = await response.json();
+    setTarefasList(tarefas);
   }
 
-  async function findOneTarefa(id){
-    const response = await fetch(`${baseURL}/${id}`)
-    const tarefa = await response.json()
-    setTarefasList([tarefa])
+  async function findOneTarefa(id) {
+    const response = await fetch(`${baseURL}/${id}`);
+    const tarefa = await response.json();
+    setTarefasList([tarefa]);
   }
-  
 
-  async function create(tarefa){
+  async function create(tarefa) {
     const response = await fetch(baseURL, {
-      method: 'post',
+      method: "post",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      mode: 'cors',
-      body: JSON.stringify(tarefa)
-    })
-    const newTarefa = await response.json()
-    setNewTarefa([newTarefa])
+      mode: "cors",
+      body: JSON.stringify(tarefa),
+    });
+    const newTarefa = await response.json();
+    setNewTarefa([newTarefa]);
   }
 
   useEffect(() => {
-    findAllTarefas()
-  }, [])
+    findAllTarefas();
+  }, []);
 
   const handleChange = (event) => {
-    setTarefa({...tarefa, [event.target.name]: event.target.value})
-  }
+    setTarefa({ ...tarefa, [event.target.name]: event.target.value });
+  };
 
   const handleChangeCreate = (event) => {
-    setNewTarefa({...newTarefa, [event.target.name]: event.target.value})
-  }
+    setNewTarefa({ ...newTarefa, [event.target.name]: event.target.value });
+  };
 
   const handleClick = (event) => {
-    const tarefa_id_search = tarefa.tarefa_id
-    findOneTarefa(tarefa_id_search)
-  }
+    const tarefa_id_search = tarefa.tarefa_id;
+    findOneTarefa(tarefa_id_search);
+  };
 
   const handleCreateTarefa = () => {
-    const tarefa_a_ser_criada = {...newTarefa}
-    create(tarefa_a_ser_criada)
+    const tarefa_a_ser_criada = { ...newTarefa };
+    create(tarefa_a_ser_criada);
     setNewTarefa({
-      descricao: ""
-    })
-  }
+      descricao: "",
+    });
+  };
 
   useEffect(() => {
-    findAllTarefas()
-  }, [newTarefa])
+    findAllTarefas();
+  }, [newTarefa]);
 
   const handleChangeCheckBox = (event) => {
-    setCheck(event.target.value)
-  }
+    setCheck(event.target.value);
+  };
 
-  console.log(tarefasList)
+  console.log(tarefasList);
 
   return (
     <div className="Tarefas">
-      {/* <FormControl
-        id="checkbox"
-        label="Digite"
-        type="text"
-        onChange={handleChangeCheckBox}
-        name="check"
-        value={check}
-      />
-       <button type="button"
-      className="search-btn"
-      onClick={handleCreateTarefa}>
-        Criar
-        </button>
-         */}
-
       <FormControl
         id="buscarTarefa"
         label="Pesquise uma tarefa"
@@ -102,22 +86,20 @@ function App() {
         name="tarefa_id"
         value={tarefa.tarefa_id}
       />
-      <button type="button"
-      className="search-btn"
-      onClick={handleClick}>
+      <button type="button" className="button" onClick={handleClick}>
         Pesquisar
-        </button>
-        <TarefaForm
+      </button>
+      <TarefaForm
         onChange={handleChangeCreate}
         descricao_value={newTarefa.descricao}
         onClick={handleCreateTarefa}
         button_label={"Criar tarefa"}
-        />
-        {tarefasList.map((tarefa, index) => (
-          <div key={index} className="card">
-            <p className="text">{tarefa.descricao}</p>
-          </div>          
-        ))}
+      />
+      {tarefasList.map((tarefa, index) => (
+        <div key={index} className="card">
+          <p className="text">{tarefa.descricao}</p>
+        </div>
+      ))}
     </div>
   );
 }
