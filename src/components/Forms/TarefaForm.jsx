@@ -1,6 +1,6 @@
 import FormControl from "./FormControl"
 
-function PaletaForm(props){
+function TarefaForm(props){
     return (
         <div>
                 <FormControl
@@ -19,4 +19,4 @@ function PaletaForm(props){
         </div>
     )
 }
-export default PaletaForm
+export default TarefaForm

@@ -12,6 +12,8 @@ function App() {
     descricao: ""
   });
 
+  const [check, setCheck] = useState("")
+
   const baseURL= "http://localhost:8000/tarefas";
 
   async function findAllTarefas() {
@@ -69,10 +71,29 @@ function App() {
     findAllTarefas()
   }, [newTarefa])
 
+  const handleChangeCheckBox = (event) => {
+    setCheck(event.target.value)
+  }
+
   console.log(tarefasList)
 
   return (
     <div className="Tarefas">
+      {/* <FormControl
+        id="checkbox"
+        label="Digite"
+        type="text"
+        onChange={handleChangeCheckBox}
+        name="check"
+        value={check}
+      />
+       <button type="button"
+      className="search-btn"
+      onClick={handleCreateTarefa}>
+        Criar
+        </button>
+         */}
+
       <FormControl
         id="buscarTarefa"
         label="Pesquise uma tarefa"
@@ -82,7 +103,7 @@ function App() {
         value={tarefa.tarefa_id}
       />
       <button type="button"
-      className={`btn btn-primary`}
+      className="search-btn"
       onClick={handleClick}>
         Pesquisar
         </button>
@@ -95,7 +116,7 @@ function App() {
         {tarefasList.map((tarefa, index) => (
           <div key={index} className="card">
             <p className="text">{tarefa.descricao}</p>
-          </div>
+          </div>          
         ))}
     </div>
   );

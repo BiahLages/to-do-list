@@ -1,6 +1,6 @@
 function FormControl(props) {
     return (
-      <div className="mb-3">
+      <div className="control">
         <label htmlFor={props.id} className="form-label">
           {props.label}
         </label>
