@@ -18,7 +18,7 @@ As ferramentas usadas para este projeto são:
 <div style="display: flex">
     <img src="https://img.icons8.com/color/96/000000/javascript--v1.png"/>
     <img src="https://img.icons8.com/ios-filled/100/000000/css3.png"/>
-    <img src="https://img.icons8.com/officexs/344/react.png"/ height="98px">
+    <img src="https://img.icons8.com/officexs/344/react.png"/ height="95px">
 </div>
 
 ## Contato
