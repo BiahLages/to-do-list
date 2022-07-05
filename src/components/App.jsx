@@ -12,8 +12,6 @@ function App() {
     descricao: "",
   });
 
-  const [check, setCheck] = useState("");
-
   const baseURL = "http://localhost:8000/tarefas";
 
   async function findAllTarefas() {
@@ -69,10 +67,6 @@ function App() {
   useEffect(() => {
     findAllTarefas();
   }, [newTarefa]);
-
-  const handleChangeCheckBox = (event) => {
-    setCheck(event.target.value);
-  };
 
   console.log(tarefasList);
 
