@@ -1,3 +1,4 @@
+import ChecBoxControl from "./CheckBoxControl";
 import FormControl from "./FormControl";
 
 function TarefaForm(props) {
@@ -5,11 +6,18 @@ function TarefaForm(props) {
     <div className="create-form">
       <FormControl
         id="criar_descrição"
-        label="Nova tarefa"
+        label={props.label}
         type="text"
         onChange={props.onChange}
         name="descricao"
         value={props.descricao_value}
+      />
+      <ChecBoxControl 
+        id="feito"
+        label="Feito"
+        onChange={props.onChangeCheckBox} 
+        name="feito"
+        checked= {props.checked}
       />
       <button
         type="button"
