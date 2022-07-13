@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./TarefasList.css";
 import FormControl from "./Forms/FormControl";
 import TarefaForm from "./Forms/TarefaForm";
 import ChecBoxControl from "./Forms/CheckBoxControl";
 import { TarefaService } from "../services/TarefaService";
 
-function App() {
+function TarefasList() {
   const [tarefasList, setTarefasList] = useState([]);
   const [tarefa, setTarefa] = useState({
     tarefa_id: "",
@@ -22,8 +22,6 @@ function App() {
   });
 
   const [showTarefaFormEdit, setShowTarefaFormEdit] = useState(false);
-
-  const baseURL = "http://localhost:8000/tarefas";
 
   async function findAllTarefas() {
     const tarefas = await TarefaService.getLista();
@@ -105,12 +103,15 @@ function App() {
     editTarefa(id, tarefa_atualizada);
   };
 
-  function handleCheckBoxChange(event) {
-    console.log(event.target.checked);
+  async function handleCheckBoxChange(event) {
     setTarefaAtualizada({ ...tarefaAtualizada, feito: event.target.checked });
-  }
+    // const checkbox_value = event.target.checked;
+    // const tarefa_a_ser_atualizada = await TarefaService.getById(event.target.id);
+    // const tarefa_att = {...tarefa_a_ser_atualizada, done: checkbox_value}
 
-  console.log(tarefasList);
+    // await TarefaService.updateById(event.target.id, tarefa_att)
+    // findAllTarefas()
+  }
 
   return (
     <div className="Tarefas">
@@ -147,33 +148,44 @@ function App() {
       {tarefasList.map((tarefa, index) => (
         <div key={index} className="card">
           <p className="text">{tarefa.descricao}</p>
-          <ChecBoxControl
-            id={tarefa.id}
-            label="Feito"
-            onChange={handleCheckBoxChange}
-            name="feito"
-            checked={tarefa.feito}
-          />
-          <button
-            id={tarefa.id}
-            type="button"
-            className="button"
-            onClick={handleClickEdit}
-          >
-            Editar
-          </button>
-          <button
-            id={tarefa.id}
-            type="button"
-            className="button"
-            onClick={handleClickDelete}
-          >
-            Deletar
-          </button>
+          <div className="card-content">
+            <ChecBoxControl
+              id={tarefa.id}
+              label="Feito"
+              onChange={handleCheckBoxChange}
+              name="feito"
+              checked={tarefa.feito}
+            />
+            <button
+              id={tarefa.id}
+              type="button"
+              className="button-edit"
+              onClick={handleClickEdit}
+            > Editar
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-pencil"
+                viewBox="0 0 16 16"
+              >
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+              </svg>
+            </button>
+            <button
+              id={tarefa.id}
+              type="button"
+              className="button-delete"
+              onClick={handleClickDelete}
+            >
+              Deletar
+            </button>
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
-export default App;
+export default TarefasList;
