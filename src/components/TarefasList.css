@@ -13,7 +13,7 @@
 }
 
 .form-control {
-  width: 40vw;
+  width: 35vw;
   height: 24px;
   margin: 5px 0;
   border-radius: 8px;
@@ -45,7 +45,25 @@
   cursor: pointer;
 }
 
+.button-modal {
+  width: 100px;
+  background-color: #5743b0;
+  border-color: #5743b0;
+  color: #b5add7;
+  font-size: 15px;
+  padding: 5px;
+  font-weight: 550;
+  border-radius: 13px;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+
 .button:hover {
+  background-color: #b5add7;
+  color: #5743b0;
+}
+
+.button-modal:hover {
   background-color: #b5add7;
   color: #5743b0;
 }

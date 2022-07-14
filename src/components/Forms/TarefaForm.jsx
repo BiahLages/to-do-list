@@ -21,7 +21,7 @@ function TarefaForm(props) {
       /> */}
       <button
         type="button"
-        className="button"
+        className="button-modal"
         onClick={props.onClick}
       >
         {props.button_label}
