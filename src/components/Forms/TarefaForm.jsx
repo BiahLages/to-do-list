@@ -5,20 +5,20 @@ function TarefaForm(props) {
   return (
     <div className="create-form">
       <FormControl
-        id="criar_descrição"
+        id={props.id}
         label={props.label}
         type="text"
         onChange={props.onChange}
         name="descricao"
         value={props.descricao_value}
       />
-      <ChecBoxControl 
+      {/* <ChecBoxControl 
         id="feito"
         label="Feito"
         onChange={props.onChangeCheckBox} 
         name="feito"
         checked= {props.checked}
-      />
+      /> */}
       <button
         type="button"
         className="button"
