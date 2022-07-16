@@ -6,7 +6,7 @@ const TarefaContext = {
 
 const urls = {
   development: "http://localhost:8000",
-  production: "https://todo-rest-beatriz.herokuapp.com/"
+  production: "https://todo-rest-beatriz.herokuapp.com"
 };
 
 export const Api = {
