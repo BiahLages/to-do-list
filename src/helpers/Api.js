@@ -4,14 +4,14 @@ const TarefaContext = {
   tarefaById: (id) => `${TarefaContext.tarefaEndpoint()}/${id}`, //url para recuperar, editar ou deletar tarefas
 };
 
-const urls = {
-  development: "http://localhost:8000",
-  production: "https://todo-rest-beatriz.herokuapp.com"
-};
+// const urls = {
+//   development: "http://localhost:8000",
+//   production: "https://todo-rest-beatriz.herokuapp.com"
+// };
 
 export const Api = {
   // baseUrl: "http://localhost:8000", //development
-  // baseUrl: "https://todo-rest-beatriz.herokuapp.com/"; //production
-  baseUrl: urls[process.env.NODE_ENV],
-  ...TarefaContext
+  baseUrl: "https://todo-rest-beatriz.herokuapp.com/", //production
+  // baseUrl: urls[process.env.NODE_ENV],
+  // ...TarefaContext
 };
