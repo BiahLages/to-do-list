@@ -10,8 +10,8 @@ const TarefaContext = {
 // };
 
 export const Api = {
-  // baseUrl: "http://localhost:8000", //development
-  baseUrl: "https://todo-rest-beatriz.herokuapp.com", //production
+  // baseUrl: "http://localhost:8000",
+  baseUrl: "https://todo-rest-beatriz.herokuapp.com"
   // baseUrl: urls[process.env.NODE_ENV],
   // ...TarefaContext
 };
