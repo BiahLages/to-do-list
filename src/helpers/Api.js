@@ -11,7 +11,7 @@ const TarefaContext = {
 
 export const Api = {
   // baseUrl: "http://localhost:8000", //development
-  baseUrl: "https://todo-rest-beatriz.herokuapp.com/", //production
+  baseUrl: "https://todo-rest-beatriz.herokuapp.com", //production
   // baseUrl: urls[process.env.NODE_ENV],
   // ...TarefaContext
 };
