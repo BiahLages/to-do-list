@@ -49,7 +49,7 @@ function TarefasList() {
     );
     setTarefaAtualizada({ ...response_tarefa_atualizada });
   }
-
+  
   async function deleteTarefa(id) {
     await TarefaService.deleteById(id);
   }
